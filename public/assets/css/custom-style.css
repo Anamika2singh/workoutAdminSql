@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.btn-toggle-grp .btn.active{border-bottom: 2px solid #1bc5bd; color:#1bc5bd; border-radius: 0;}
+span.table-data-tooltip-icon {
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    opacity: 0.8;
+    transform: translate(0, -50%);
+}
+
+td.table-data-tooltip {
+    position: relative;
+    padding-right: 19px;
+}
+
+.aside-secondary-enabled .aside{width:280px;}
+.aside .aside-primary{width:280px;}
+@media (min-width: 992px){
+    .aside-secondary-enabled.aside-fixed .wrapper {
+        padding-left: 300px;
+    }
+}
+
+
+.table-data-tooltip-icon:hover i.text-dark-50{color:#1bc5bd !important}
+
+.subheader .btn.btn-primary {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;}
+    .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-heading .menu-text, .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-link .menu-text{color:#333}
+
+    .irs--flat .irs-bar {
+        top: 25px;
+        height: 12px;
+        background-color: #1bc5bd;
+    }
+    .irs--flat .irs-handle>i:first-child, .irs--flat .irs-from, .irs--flat .irs-single, .irs--flat .irs-to{background-color: #1bc5bd;}
+    .irs--flat .irs-from:before, .irs--flat .irs-single:before, .irs--flat .irs-to:before{    border-top-color: #1bc5bd;}
+    .vertical-middle{vertical-align: middle;}

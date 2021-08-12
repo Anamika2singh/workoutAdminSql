@@ -1,0 +1,245 @@
+<%- include ('header.ejs') %>
+           <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                    <!--begin::Subheader-->
+                    <div class="subheader py-3 py-lg-8 subheader-transparent" id="kt_subheader">
+                        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <!--begin::Info-->
+                            <div class="d-flex align-items-center mr-1">
+                                <!--begin::Page Heading-->
+                                <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                    <!--begin::Page Title-->
+                                    <h2 class="d-flex align-items-center text-dark font-weight-bold my-1 mr-3">Add Challenge </h2>
+                                    <!--end::Page Title-->
+
+                                </div>
+                                <!--end::Page Heading-->
+                            </div>
+                            <!--end::Info-->
+                            <!--begin::Toolbar-->
+                            <div class="d-flex align-items-center flex-wrap">
+                                <!--begin::Button-->
+                                <%=msg%>
+                                <!--end::Button-->
+
+
+                            </div>
+                            <!--end::Toolbar-->
+                        </div>
+                    </div>
+                    <!--end::Subheader-->
+                    <!--begin::Entry-->
+                    <div class="d-flex flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-12 col-md-12">
+                                  <form action="/challenge/addChallenge" method="POST" enctype="multipart/form-data">
+                                    <div class="card card-custom gutter-b">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <div class="col-md-4">
+                                                    <label>Challenge Name</label>
+                                                    <input type="text" class="form-control" placeholder="Challenge Name" name="challengeName" required="true" maxlength="100">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Body Area</label>
+                                                    <select name="bodyArea" class="form-control" id="exampleSelect2" required="true">
+                                                        <%data.bodyAreas.forEach(function(bodyArea){%>
+                                                        <option value="<%=bodyArea.body_area_id%>.<%=bodyArea.name%>"><%=bodyArea.name%></option>
+                                                        <%})%>
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Insert media</label>
+                                                    <div class="dropzone dropzone-multi" id="kt_dropzone_5">
+                                                        <div class="dropzone-panel mb-lg-0 mb-2">
+                                                             <input type="file" class="dropzone-select font-weight-bold btn-sm" id="image" name="challengeImage" required="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card card-custom gutter-b">
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h3 class="card-label">Workouts
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                            	<%for(let i = 1;i<=30;i++){%>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="bg-gray-100 d-block px-3 py-3 mt-3 mb-3">
+                                                        <div class="form-group align-items-end mb-0 row">
+                                                            <div class="col-md-12">
+                                                                <h4 class="text-primary"><b>Day <%=i%></b></h4>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label>Choose Workout</label>
+                                                                <select class="form-control" id="exampleSelect2" name=workouts[] required="true">
+                                                                    <%data.workouts.forEach(function(workout){%>
+			                                                        <option value="<%=workout.workout_id%>.<%=workout.name%>"><%=workout.name%></option>
+			                                                        <%})%>
+                                                                </select>
+                                                            </div>
+                                                            
+                                                        </div>
+        
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-12 text-right">
+                                                    <a href="/challenge/manageChallenge" class="btn ">Cancel</a>
+                                                    <button type="submit" class="btn btn-success mr-3">Save Challenge</button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                 <!-- </form> -->
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <!--doc: add "bg-white" class to have footer with solod background color-->
+                <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                    <!--begin::Container-->
+                    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">2021©</span>
+                            <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Fitness App</a>
+                        </div>
+                        <!--end::Copyright-->
+                        
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+
+   
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+					</g>
+				</svg>
+				<!--end::Svg Icon-->
+			</span>
+    </div>
+    <!--end::Scrolltop-->
+
+    <script>
+        var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
+    </script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+        var KTAppSettings = {
+            "breakpoints": {
+                "sm": 576,
+                "md": 768,
+                "lg": 992,
+                "xl": 1200,
+                "xxl": 1200
+            },
+            "colors": {
+                "theme": {
+                    "base": {
+                        "white": "#ffffff",
+                        "primary": "#1BC5BD",
+                        "secondary": "#E5EAEE",
+                        "success": "#1BC5BD",
+                        "info": "#6993FF",
+                        "warning": "#FFA800",
+                        "danger": "#F64E60",
+                        "light": "#F3F6F9",
+                        "dark": "#212121"
+                    },
+                    "light": {
+                        "white": "#ffffff",
+                        "primary": "#1BC5BD",
+                        "secondary": "#ECF0F3",
+                        "success": "#C9F7F5",
+                        "info": "#E1E9FF",
+                        "warning": "#FFF4DE",
+                        "danger": "#FFE2E5",
+                        "light": "#F3F6F9",
+                        "dark": "#D6D6E0"
+                    },
+                    "inverse": {
+                        "white": "#ffffff",
+                        "primary": "#ffffff",
+                        "secondary": "#212121",
+                        "success": "#ffffff",
+                        "info": "#ffffff",
+                        "warning": "#ffffff",
+                        "danger": "#ffffff",
+                        "light": "#464E5F",
+                        "dark": "#ffffff"
+                    }
+                },
+                "gray": {
+                    "gray-100": "#F3F6F9",
+                    "gray-200": "#ECF0F3",
+                    "gray-300": "#E5EAEE",
+                    "gray-400": "#D6D6E0",
+                    "gray-500": "#B5B5C3",
+                    "gray-600": "#80808F",
+                    "gray-700": "#464E5F",
+                    "gray-800": "#1B283F",
+                    "gray-900": "#212121"
+                }
+            },
+            "font-family": "Poppins"
+        };
+    </script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets/js/pages/widgets.js"></script>
+    <!--end::Page Scripts-->
+    
+</body>
+<!--end::Body-->
+
+</html>
